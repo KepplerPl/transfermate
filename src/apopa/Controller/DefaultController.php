@@ -26,7 +26,7 @@ class DefaultController {
         $response->setHeaders(['Content-type' => 'application/json']);
         if(!isset($_GET['q']) || "" == trim($_GET['q'])) {
             $response->setResponseCode(200);
-            $response->setBody(['missing search term']);
+            $response->setBody('missing search term');
             $response->send();
         }
 

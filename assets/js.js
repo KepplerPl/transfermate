@@ -36,7 +36,7 @@ function submitSearch() {
     })
         .then(response => response.json())
         .then(body => {
-            if(body !== "no results") {
+            if(body !== "no results" && body !== "missing search term") {
                 let author = body.author;
                 delete body.author;
 
