@@ -1,8 +1,8 @@
 {
   "database" : {
-    "username" : "",
-    "password": "",
+    "username" : "root",
+    "password": "asadar",
     "servername": "localhost",
-    "dbname": ""
+    "dbname": "transfermate"
   }
 }

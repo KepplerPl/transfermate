@@ -36,17 +36,19 @@ function submitSearch() {
     })
         .then(response => response.json())
         .then(body => {
-            let author = body.author;
-            delete body.author;
+            if(body !== "no results") {
+                let author = body.author;
+                delete body.author;
 
-            let html = '<table class="center"><tbody><tr><th>Author</th><th>Book</th></tr>';
+                let html = '<table class="center"><tbody><tr><th>Author</th><th>Book</th></tr>';
 
-            for (const property in body) {
-                html += "<tr><td>"+author+"</td><td>"+ (null == body[property].book ? "&lt;none&gt; (no books found)" : body[property].book)+"</td></tr>"
+                for (const property in body) {
+                    html += "<tr><td>"+author+"</td><td>"+ (null == body[property].book ? "&lt;none&gt; (no books found)" : body[property].book)+"</td></tr>"
+                }
+                html += "</tbody></table>";
+
+                populateContainer(html)
             }
-            html += "</tbody></table>";
-
-            populateContainer(html)
             document.getElementById("searchSubmit").disabled = false;
 
         });
